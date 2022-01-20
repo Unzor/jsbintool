@@ -2,7 +2,11 @@
 JSBinTool - JavaScript Binary Toolkit
 
 # Usage
-You can either compile a file:
+First install it:
+```
+npm install -g jsbintool
+```
+Now you can either compile a file:
 ```
 jsbintool index.js --compile main.bin
 ```
