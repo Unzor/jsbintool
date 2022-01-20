@@ -34,3 +34,17 @@ eval(jsbintool.binaryFileToString("test.bin"));
 // Evaluate raw binary using fs
 eval(jsbintool.binaryToString(fs.readFileSync("test.bin")));
 ```
+You can also use it in the browser:
+```html
+<html>
+<body>
+  <script src="jsbintool-browser.min.js"></script>
+  <script>
+    (async () => {
+    var decoded = await jsbintool.binaryFileToString("script.bin");
+    eval(decoded);
+    })()
+  </script>
+</body>
+</html>
+```
