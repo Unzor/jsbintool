@@ -75,5 +75,12 @@ var jsbintool = {
     },
     binaryToString: function(string) {
         return decode_bin(string);
+    },
+    runBinaryFromFile: async function(file) {
+        var h = await fetch(file)
+        eval(decode_bin(await h.arrayBuffer()));
+    }, 
+     runBinaryFromVariable: async function(file) {
+        eval(decode_bin(file));
     }
 };
