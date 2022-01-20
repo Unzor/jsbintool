@@ -70,6 +70,19 @@ function decode_bin(uint) {
     return stringOutput.substring(0, stringOutput.length - 1);
 };
 
+
+var isMainModule = function () {
+    // generate a stack trace
+    const stack = (new Error()).stack;
+    // the third line refers to our caller
+    const stackLine = stack.split("\n")[2];
+    // extract the module name from that line
+    const callerModuleName = /\((.*):\d+:\d+\)$/.exec(stackLine)[1];
+
+    return require.main.filename === callerModuleName;
+};
+
+if (isMainModule()) {
 if (cli.flags[0]) {
     if (cli.commands[0]) {
         if (cli.flags[0].startsWith("--compile") || cli.flags[0].startsWith("-c")) {
@@ -87,7 +100,7 @@ if (cli.commands[0] && !cli.flags[0]) {
 } else if (!cli.commands[0] && !cli.flags[0]) {
     console.log("error: no CLI arguments or flags provided!")
 }
-
+}
 module.exports = {
     fileToBinary: function(file) {
         return encode_bin(stringToBinary(fs.readFileSync(file).toString()))
