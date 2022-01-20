@@ -92,7 +92,13 @@ module.exports = {
     fileToBinary: function(file) {
         return encode_bin(stringToBinary(fs.readFileSync(file).toString()))
     },
-    binaryToFile: function(file) {
-        return decode_bin(file);
-    }
+    binaryFileToString: function(file) {
+        return decode_bin(fs.readFileSync(file));
+    },
+    stringToBinary: function(string) {
+        return encode_bin(stringToBinary(string))
+    },
+     binaryToString: function(string) {
+        return decode_bin(string);
+    },
 }
