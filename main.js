@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+
 var cli = require("cli2json").parse(process.argv.slice(2).join(" "), {
-readCommandAfter: ["-c", "--compile"]
+    readCommandAfter: ["-c", "--compile"]
 });
 
 
@@ -70,19 +71,28 @@ function decode_bin(uint) {
 };
 
 if (cli.flags[0]) {
-if (cli.commands[0]) {
-if (cli.flags[0].startsWith("--compile") || cli.flags[0].startsWith("-c")) {
-fs.writeFileSync(cli.flags[0].split(" ").pop(), encode_bin(stringToBinary(fs.readFileSync(cli.commands[0]).toString())));
-} else {
-console.log("error: unknown flag: " + cli.flags[0].split(" ").shift());
-}
-} else {
-console.log("error: no file to compile provided!")
-}
+    if (cli.commands[0]) {
+        if (cli.flags[0].startsWith("--compile") || cli.flags[0].startsWith("-c")) {
+            fs.writeFileSync(cli.flags[0].split(" ").pop(), encode_bin(stringToBinary(fs.readFileSync(cli.commands[0]).toString())));
+        } else {
+            console.log("error: unknown flag: " + cli.flags[0].split(" ").shift());
+        }
+    } else {
+        console.log("error: no file to compile provided!")
+    }
 }
 
 if (cli.commands[0] && !cli.flags[0]) {
-eval(decode_bin(fs.readFileSync(cli.commands[0])))
-} else if (!cli.commands[0] && !cli.flags[0]){
-console.log("error: no CLI arguments or flags provided!")
+    eval(decode_bin(fs.readFileSync(cli.commands[0])))
+} else if (!cli.commands[0] && !cli.flags[0]) {
+    console.log("error: no CLI arguments or flags provided!")
+}
+
+module.exports = {
+    fileToBinary: function(file) {
+        return encode_bin(stringToBinary(fs.readFileSync(file).toString()))
+    },
+    binaryToFile: function(file) {
+        return decode_bin(file);
+    }
 }
