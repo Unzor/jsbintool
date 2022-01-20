@@ -98,7 +98,7 @@ module.exports = {
     stringToBinary: function(string) {
         return encode_bin(stringToBinary(string))
     },
-     binaryToString: function(string) {
+    binaryToString: function(string) {
         return decode_bin(string);
     },
 }
