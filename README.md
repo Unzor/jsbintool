@@ -40,10 +40,7 @@ You can also use it in the browser:
 <body>
   <script src="jsbintool-browser.min.js"></script>
   <script>
-    (async () => {
-    var decoded = await jsbintool.binaryFileToString("script.bin");
-    eval(decoded);
-    })()
+    jsbintool.runFile("script.bin");
   </script>
 </body>
 </html>
