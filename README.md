@@ -1,6 +1,8 @@
 # jsbintool
 JSBinTool - JavaScript Binary Toolkit
 
+# What is this useful for?
+This is useful for hiding your code and making it nearly unreadable. However, people can still decode it using the JSBinTool library, so use the JSBinTool packager (coming soon.)
 # Usage
 First install it:
 ```
