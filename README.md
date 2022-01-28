@@ -1,7 +1,7 @@
 # jsbintool
 JSBinTool - JavaScript Binary Toolkit
 
-# What is this useful for?
+# Uses
 This is useful for hiding your code and making it nearly unreadable. However, people can still decode it using the JSBinTool library, so use the JSBinTool packager. The contents of the packager are obfuscated to hide the base code.
 
 To run the packager, clone this repo and run this:
@@ -55,6 +55,14 @@ You can also use it in the browser:
   <script>
     jsbintool.runFile("script.bin");
   </script>
+</body>
+</html>
+```
+Or you could package it using the JSBinTool packager ([more info](https://github.com/Unzor/jsbintool#uses)):
+```
+<html>
+<body>
+  <script src="jsbintool-packager-script.js"></script>
 </body>
 </html>
 ```
