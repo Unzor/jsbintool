@@ -59,7 +59,7 @@ You can also use it in the browser:
 </html>
 ```
 Or you could package it using the JSBinTool packager ([more info](https://github.com/Unzor/jsbintool#uses)):
-```
+```html
 <html>
 <body>
   <script src="jsbintool-packager-script.js"></script>
