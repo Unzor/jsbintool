@@ -4,7 +4,7 @@ JSBinTool - JavaScript Binary Toolkit
 # Uses
 This is useful for hiding your code and making it nearly unreadable. However, people can still decode it using the JSBinTool library, so use the JSBinTool packager. The contents of the packager are obfuscated to hide the base code.
 
-To run the packager, clone this repo and run this:
+To run the packager, clone this repo and run this: (Tip: replace &lt;file&gt; with the file name of your compiled BIN file)
 ```
 node jsbintool-packager <file>.bin
 ```
