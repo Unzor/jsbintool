@@ -1,6 +1,11 @@
 # jsbintool
 JSBinTool - JavaScript Binary Toolkit
 
+# How it works
+First, it translates your JavaScript code to bare zeroes and ones. Then, it splits the binary into multiple characters and adds "\u000" to the beginning to turn it into the ASCII character one, but for the zeroes, it gets replaced into a nine, because there is no ASCII character 0. Then it gets written to a file.
+
+For the decompilation, it's the opposite: it translates it back to zeroes and ones (or should we say nines) using Uint8Arrays, then replaces the 32s into spaces and 9s into zeros, and translates it to its original content.
+
 # Uses
 This is useful for hiding your code and making it nearly unreadable. However, people can still decode it using the JSBinTool library, so use the JSBinTool packager. The contents of the packager are obfuscated to hide the base code.
 
